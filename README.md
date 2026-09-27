@@ -1,29 +1,47 @@
-# 🏛️ P-CORE: Family Data Governance Framework
-
-> **Master framework for a Sovereign Family Data Ecosystem.** Implementation of Medallion Architecture (Bronze/Silver/Gold) for long-term governance of health, assets, and digital legacy using AI-driven orchestration.
-
-## 🎯 Visão Geral
-O **P-CORE** é um framework de governança e arquitetura de dados projetado para garantir a soberania, perenidade e sucessão do patrimônio informacional familiar por um horizonte de +30 anos. 
-
-Diferente de uma simples organização de pastas, o P-CORE aplica princípios de **Enterprise Data Management** e **Privacy by Design** para transformar documentos brutos em ativos de conhecimento acionáveis.
-
-## 🏗️ Arquitetura de Dados (Medallion Approach)
-O ecossistema opera sob o ciclo de maturidade das três camadas:
-
-1. **A_BRONZE (Raw/Truth)**: Repositório imutável de ingestão. Os arquivos são processados pelo motor de IA (**Maestro Alpha**) e renomeados sob uma taxonomia estrita, garantindo auditoria e integridade.
-2. **B_SILVER (Structured/Cleaned)**: Camada de processamento onde o OCR e LLMs (Gemini Pro) extraem metadados, realizam a desduplicação técnica e alimentam índices estruturados.
-3. **C_GOLD (Insight/Intelligence)**: Camada final de consumo, com dashboards de tendências de saúde, alertas de expiração de garantias e suporte à decisão via Agentes Orientadores.
-
-## 🛡️ Pilares de Governança
-* **Soberania de Identidade**: Separação clara entre a Identidade Institucional (`P-CORE Account`) e os usuários individuais, garantindo que o legado não dependa de um único CPF.
-* **Taxonomia de Ouro**: Sistema de nomenclatura universal que permite a portabilidade dos dados e a leitura por qualquer sistema de busca ou IA (NotebookLM).
-* **Sucessão Digital**: Protocolos de acesso e documentação técnica (Master Guide) desenhados para serem herdáveis pelas próximas gerações.
-
-## 🛠️ Tech Stack
-* **Cloud**: Google Cloud Platform (IAM, Drive API, Sheets API).
-* **AI/LLM**: Google Gemini Pro 1.5 & NotebookLM.
-* **Automation**: Python (Colab) & Make.com.
-* **Orchestration**: P-CORE Maestro Alpha Engine.
+# 🏛️ P-Core Data Platform
+**Plataforma de Ingestão e Inteligência Financeira D-1**  
+**Arquitetura:** Google Cloud Platform (Serverless) & Open Finance API  
 
 ---
-*Este repositório contém a documentação técnica e o framework conceitual do ecossistema. Os motores de processamento (Engines) são mantidos em módulos privados para proteção de propriedade intelectual e privacidade de dados.*
+
+## 📌 Visão Geral
+
+O **P-Core Data Platform** é o motor de engenharia de dados do ecossistema **P-Core**, projetado para automatizar a consolidação de movimentações bancárias e financeiras diárias em **D-1**, aplicando princípios rigorosos de **Governança, Qualidade de Dados e Segurança**.
+
+### 🛠️ Stack Tecnológica
+* **Linguagem & Ingestão:** Python 3.12 (Requests, PyArrow, Pandas)
+* **Nuvem & Processamento:** Google Cloud Platform (Cloud Functions / Cloud Run Jobs)
+* **Armazenamento & Camadas:** Google BigQuery (Bronze, Silver e Gold)
+* **Segurança:** GCP Secret Manager, IAM Service Accounts, Push Protection
+
+---
+
+## 🛡️ Governança & Padrões Corporativos
+As diretrizes de segurança, arquitetura mestre, LGPD e o Catálogo Unificado de Dados desta plataforma estão documentadas no repositório corporativo de governança:
+
+👉 **[P-Core Governance Framework](https://github.com/ThiagoFOPinto/p-core-governance)**
+
+---
+
+## 🏗️ Arquitetura em Camadas (Medalhão)
+1. **Bronze (`pcore_financas_bronze`):** Payload bruto obtido via Open Finance API com metadados de auditoria (`_dh_ingestao`, `_fonte`).
+2. **Silver (`pcore_financas_silver`):** Dados higienizados, tipados e deduplicados por hash de transação.
+3. **Gold (`pcore_financas_gold`):** Modelagem dimensional (*Star Schema*) pronta para consultas analíticas e consumo via Gemini / Vertex AI.
+
+---
+
+## 🚀 Como Executar Localmente (Desenvolvimento)
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/ThiagoFOPinto/p-core-data-platform.git
+   ```
+2. Crie e ative o ambiente virtual:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Linux/Mac ou .venv\Scripts\activate no Windows
+   ```
+3. Configuração de variáveis de ambiente:
+   ```bash
+   cp .env.example .env
+   ```
+```
