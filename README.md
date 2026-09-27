@@ -40,4 +40,4 @@ O ciclo de vida de dados em todos os módulos segue o refinamento progressivo em
 
 ## 🔒 Confidencialidade e Propriedade Intelectual
 Este repositório define exclusivamente os conceitos, diagramas e padrões institucionais de governança do P-Core. As implementações de código, pipelines de ingestão e conexões de infraestrutura residem em repositórios privados e restritos a mantenedores autorizados.
-processual privada!**
+processual privada!
